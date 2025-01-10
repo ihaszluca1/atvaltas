@@ -1,11 +1,12 @@
+#Kötelező elemek importálása
 from tkinter import *
 
-# Ablak létrehozása
+# Ablak létrehozása és elnevezése
 root = Tk()
 root.title("Átváltó")
 root.config(bg="#a3cef1")
 
-
+#általános számolás
 def convert(ertek, mibol, mibe, atvaltas_ertek):
     try:
         mibol1 = atvaltas_ertek[mibol]
@@ -16,7 +17,7 @@ def convert(ertek, mibol, mibe, atvaltas_ertek):
         return "Érvénytelen mértékegység"
 
 
-
+#hosszúság ablak létrehozása, dizájnolása
 def hossz():
     def show(): 
         ertek = float(entry.get())  
