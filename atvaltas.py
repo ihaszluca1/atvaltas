@@ -17,8 +17,9 @@ def convert(ertek, mibol, mibe, atvaltas_ertek):
         return "Érvénytelen mértékegység"
 
 
-#hosszúság ablak létrehozása, dizájnolása
+#hosszúság ablak létrehozása
 def hossz():
+    #mértékegységek érték adása
     def show(): 
         ertek = float(entry.get())  
         mibol = clicked_from.get()  
@@ -33,7 +34,7 @@ def hossz():
         result = convert(ertek, mibol, mibe, atvaltas_ertek)
         eredm.config(text=f"Eredmény: {result} {mibe}")
 
-    
+    #hosszúság ablak elemeinek létrehozása, elrendezése, dizájnolása
     top = Toplevel()
     top.title("Hosszúság átváltás")
     top.config(bg="#a3cef1")
@@ -68,8 +69,9 @@ def hossz():
     eredm.grid(column=0, row=5, columnspan=2, pady=10)
 
 
-
+#tömeg ablak létrehozása
 def tomeg():
+    #mértékegységek érték adása
     def show(): 
         ertek = float(entry.get())  
         mibol = clicked_from.get()  
@@ -84,7 +86,7 @@ def tomeg():
         result = convert(ertek, mibol, mibe, atvaltas_ertek)
         eredm.config(text=f"Eredmény: {result} {mibe}")
     
-    
+    #tömeg ablak elemeinek létrehozása, elrendezése, dizájnolása
     top = Toplevel()
     top.title("Tömeg átváltás")
     top.config(bg="#a3cef1")
@@ -120,8 +122,9 @@ def tomeg():
     eredm.grid(column=0, row=5, columnspan=2, pady=10)
 
 
-
+#Űrmérték ablak létrehozása
 def urmerek():
+    #mértékegységek érték adása
     def show(): 
         ertek = float(entry.get())  
         mibol = clicked_from.get()  
@@ -136,6 +139,7 @@ def urmerek():
         result = convert(ertek, mibol, mibe, atvaltas_ertek)
         eredm.config(text=f"Eredmény: {result} {mibe}")
     
+    #űrmérték ablak elemeinek létrehozása, elrendezése, dizájnolása
     top = Toplevel()
     top.title("Űrmérték átváltás")
     top.config(bg="#a3cef1")
@@ -172,7 +176,7 @@ def urmerek():
 
 
 
-
+#fő ablak dizájnolása, elemek létrehozása
 label_szoveg = Label(root, text="Válaszd ki mit szeretnél átváltatni!", font=("Arial", 20), bg="#a3cef1")
 label_szoveg.grid(column=0, row=1, columnspan=2, pady=10)
 
