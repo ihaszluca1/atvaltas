@@ -21,18 +21,23 @@ def convert(ertek, mibol, mibe, atvaltas_ertek):
 def hossz():
     #mértékegységek érték adása
     def show(): 
-        ertek = float(entry.get())  
-        mibol = clicked_from.get()  
-        mibe = clicked_to.get()  
-        atvaltas_ertek = {
-            "Milliméter": 1,
-            "Centiméter": 10,
-            "Deciméter": 100,
-            "Méter": 1000,
-            "Kilométer": 1000000
-        }
-        result = convert(ertek, mibol, mibe, atvaltas_ertek)
-        eredm.config(text=f"Eredmény: {result} {mibe}")
+        try:
+            ertek = float(entry.get())  
+            mibol = clicked_from.get()  
+            mibe = clicked_to.get()  
+            atvaltas_ertek = {
+                "Milliméter": 1,
+                "Centiméter": 10,
+                "Deciméter": 100,
+                "Méter": 1000,
+                "Kilométer": 1000000
+            }
+            result = convert(ertek, mibol, mibe, atvaltas_ertek)
+            eredm.config(text=f"Eredmény: {result} {mibe}")
+        except ValueError:
+            eredm.config(text="Hibás bemenet! Írj be egy számot.", fg="red")
+        except KeyError:
+            eredm.config(text="Érvénytelen mértékegység.", fg="red")
 
     #hosszúság ablak elemeinek létrehozása, elrendezése, dizájnolása
     top = Toplevel()
@@ -73,19 +78,25 @@ def hossz():
 def tomeg():
     #mértékegységek érték adása
     def show(): 
-        ertek = float(entry.get())  
-        mibol = clicked_from.get()  
-        mibe = clicked_to.get()  
-        atvaltas_ertek = {
-            "Milligramm": 1,
-            "Gramm": 10,
-            "Dekagramm": 100,
-            "Kilogramm": 10000,
-            "Tonna": 10000000
-        }
-        result = convert(ertek, mibol, mibe, atvaltas_ertek)
-        eredm.config(text=f"Eredmény: {result} {mibe}")
-    
+        try:
+            ertek = float(entry.get())  
+            mibol = clicked_from.get()  
+            mibe = clicked_to.get()  
+            atvaltas_ertek = {
+                "Milligramm": 1,
+                "Gramm": 10,
+                "Dekagramm": 100,
+                "Kilogramm": 10000,
+                "Tonna": 10000000
+            }
+            result = convert(ertek, mibol, mibe, atvaltas_ertek)
+            eredm.config(text=f"Eredmény: {result} {mibe}")
+        except ValueError:
+            eredm.config(text="Hibás bemenet! Írj be egy számot.", fg="red")
+        except KeyError:
+            eredm.config(text="Érvénytelen mértékegység.", fg="red")
+
+
     #tömeg ablak elemeinek létrehozása, elrendezése, dizájnolása
     top = Toplevel()
     top.title("Tömeg átváltás")
@@ -126,18 +137,23 @@ def tomeg():
 def urmerek():
     #mértékegységek érték adása
     def show(): 
-        ertek = float(entry.get())  
-        mibol = clicked_from.get()  
-        mibe = clicked_to.get()  
-        atvaltas_ertek = {
-            "Mililiter": 1,
-            "Centiliter": 10,
-            "Deciliter": 100,
-            "Liter": 1000,
-            "Hektoliter": 100000
-        }
-        result = convert(ertek, mibol, mibe, atvaltas_ertek)
-        eredm.config(text=f"Eredmény: {result} {mibe}")
+        try:
+            ertek = float(entry.get())  
+            mibol = clicked_from.get()  
+            mibe = clicked_to.get()  
+            atvaltas_ertek = {
+                "Mililiter": 1,
+                "Centiliter": 10,
+                "Deciliter": 100,
+                "Liter": 1000,
+                "Hektoliter": 100000
+            }
+            result = convert(ertek, mibol, mibe, atvaltas_ertek)
+            eredm.config(text=f"Eredmény: {result} {mibe}")
+        except ValueError:
+            eredm.config(text="Hibás bemenet! Írj be egy számot.", fg="red")
+        except KeyError:
+            eredm.config(text="Érvénytelen mértékegység.", fg="red")
     
     #űrmérték ablak elemeinek létrehozása, elrendezése, dizájnolása
     top = Toplevel()
