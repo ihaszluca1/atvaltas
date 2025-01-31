@@ -199,15 +199,15 @@ def valuta():
             mibol = clicked_from.get()  
             mibe = clicked_to.get()  
             atvaltas_ertek = {
-                #"Euró":
-                #"Forint":
-                #"Korona":
-                #"Lej":
-                #"Dollár":
-                #"Peso":
-                #"Font":
-                #"Rúpia":
-                #"Zloty":
+                "Euró":
+                "Forint":
+                "Cseh Korona":
+                "Román Lej":
+                "USA Dollár":
+                "Argentín Peso":
+                "Angol Font":
+                "Indiai Rúpia":
+                "Lengyel Zloty":
 
             }
             result = convert(ertek, mibol, mibe, atvaltas_ertek)
@@ -231,7 +231,7 @@ def valuta():
     mibe = Label(top, text="Mibe", font=("Arial", 20), bg="#a3cef1")
     mibe.grid(column=1, row=2, columnspan=2, pady=5)
 
-    options = ["Euró", "Forint", "Korona", "Lej", "Dollár", "Peso", "Font", "Rúpia", "Zloty"]
+    options = ["Euró", "Forint", "Cseh Korona", "Román Lej", "USA Dollár", "Argentín Peso", "Angol Font", "Indiai Rúpia", "Lengyel Zloty"]
     clicked_from = StringVar()
     clicked_from.set("Forint")
     drop = OptionMenu(top , clicked_from , *options)
