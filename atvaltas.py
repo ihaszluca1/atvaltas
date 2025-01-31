@@ -191,10 +191,71 @@ def urmerek():
     eredm.grid(column=0, row=5, columnspan=2, pady=10)
 
 
+def valuta():
+    #mértékegységek érték adása
+    def show(): 
+        try:
+            ertek = float(entry.get())  
+            mibol = clicked_from.get()  
+            mibe = clicked_to.get()  
+            atvaltas_ertek = {
+                #"Euró":
+                #"Forint":
+                #"Korona":
+                #"Lej":
+                #"Dollár":
+                #"Peso":
+                #"Font":
+                #"Rúpia":
+                #"Zloty":
+
+            }
+            result = convert(ertek, mibol, mibe, atvaltas_ertek)
+            eredm.config(text=f"Eredmény: {result} {mibe}")
+        except ValueError:
+            eredm.config(text="Hibás bemenet! Írj be egy számot.", fg="red")
+        except KeyError:
+            eredm.config(text="Érvénytelen mértékegység.", fg="red")
+
+    #hosszúság ablak elemeinek létrehozása, elrendezése, dizájnolása
+    top = Toplevel()
+    top.title("Valuta")
+    top.config(bg="#a3cef1")
+
+    entry = Entry(top, width=20, font=("Arial", 15), borderwidth=1, relief="solid", justify="center")
+    entry.grid(column=0, row=1, columnspan=2, padx=3, pady=5)
+
+    mibol = Label(top, text="Miből", font=("Arial", 20), bg="#a3cef1")
+    mibol.grid(column=0, row=2, pady=5)
+
+    mibe = Label(top, text="Mibe", font=("Arial", 20), bg="#a3cef1")
+    mibe.grid(column=1, row=2, columnspan=2, pady=5)
+
+    options = ["Euró", "Forint", "Korona", "Lej", "Dollár", "Peso", "Font", "Rúpia", "Zloty"]
+    clicked_from = StringVar()
+    clicked_from.set("Forint")
+    drop = OptionMenu(top , clicked_from , *options)
+    drop.grid(column=0, row=3, padx=5, pady=10)
+
+    clicked_to = StringVar()
+    clicked_to.set("Peso")
+    drop_to = OptionMenu(top, clicked_to, *options)
+    drop_to.grid(column=1, row=3, padx=5, pady=10)
+
+    szamol_button = Button(top, text="Számol", bg="#0d3b66", font=("Arial", 12), fg="white", command=show)
+    szamol_button.grid(column=0, row=4, padx=3, pady=5)
+
+    back_button = Button(top, text="Bezár", bg="#0d3b66", font=("Arial", 12), fg="white", command=top.destroy)
+    back_button.grid(column=1, row=4, padx=3, pady=5)
+
+    eredm = Label(top, text="", font=("Arial", 20), bg="#a3cef1")
+    eredm.grid(column=0, row=5, columnspan=2, pady=10)
+
+
 
 #fő ablak dizájnolása, elemek létrehozása
 label_szoveg = Label(root, text="Válaszd ki mit szeretnél átváltatni!", font=("Arial", 20), bg="#a3cef1")
-label_szoveg.grid(column=0, row=1, columnspan=2, pady=10)
+label_szoveg.grid(column=1, row=1, columnspan=2, pady=10)
 
 hossz_button = Button(root, text="Hosszúság átváltás", bg="#0d3b66", font=("Arial", 12), fg="white", command=hossz)
 hossz_button.grid(column=0, row=2, padx=5, pady=10)
@@ -204,6 +265,9 @@ tomeg_button.grid(column=1, row=2, padx=5, pady=10)
 
 urmertek_button = Button(root, text="Űrmérték átváltás", bg="#0d3b66", font=("Arial", 12), fg="white", command=urmerek)
 urmertek_button.grid(column=2, row=2, padx=5, pady=10)
+
+hossz_button = Button(root, text="Valuta", bg="#0d3b66", font=("Arial", 12), fg="white", command=valuta)
+hossz_button.grid(column=3, row=2, padx=5, pady=10)
 
 stop_button = Button(root, text="Kilépés", bg="#0d3b66", font=("Arial", 12), fg="white", command=root.destroy)
 stop_button.grid(column=1, row=3, padx=5, pady=10)
