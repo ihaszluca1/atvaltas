@@ -199,15 +199,15 @@ def valuta():
             mibol = clicked_from.get()  
             mibe = clicked_to.get()  
             atvaltas_ertek = {
-                "Euró":
-                "Forint":
-                "Cseh Korona":
-                "Román Lej":
-                "USA Dollár":
-                "Argentín Peso":
-                "Angol Font":
-                "Indiai Rúpia":
-                "Lengyel Zloty":
+                "Euró": 1,
+                "Forint": 400,
+                "Cseh Korona": 0.04,
+                "Román Lej": 4.98,
+                "USA Dollár": 1.04,
+                "Argentín Peso": 1092.72,
+                "Angol Font": 0.84,
+                "Indiai Rúpia": 90.05,
+                "Lengyel Zloty": 4.21,
 
             }
             result = convert(ertek, mibol, mibe, atvaltas_ertek)
